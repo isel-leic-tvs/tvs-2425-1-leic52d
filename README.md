@@ -5,7 +5,7 @@
 **Professor:** Jorge Martins, gabinete F.0.16
 
 **Horário:**
- - 4ª feira, 09:30-12:30, [T] G.0.08 / [P] ??? (?.?.??)
+ - 4ª feira, 09:30-12:30, [T] G.0.08 / [P] LS5 (G.0.20)
  - 6ª feira, 09:30-11:00, [T] G.0.08
 
 **Info**
