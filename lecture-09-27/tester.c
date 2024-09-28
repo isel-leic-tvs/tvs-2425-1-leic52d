@@ -16,9 +16,9 @@ typedef void (*FUNCTION)();
 int  exec_test(FUNCTION func, char *expectedName);
 
 void f1() {
-    printf("I'm being tested!\n");
-    printf("A second line\n");
-    return;
+	printf("I'm being tested!\n");
+	printf("A second line\n");
+	return;
 }
 
 
@@ -32,12 +32,12 @@ bool check_same_content(char *expectedName, FILE *output) {
 		perror("error opening extected out file");
 		return false;
 	}
- 	
+
 	char *le, *lo;
 	while(true) {
 		le = fgets(lineo, MAX_LINE, output);
-	    lo = fgets(linee, MAX_LINE, expected);
-	    if (le == NULL || lo == NULL || strcmp(linee, lineo) != 0) {
+		lo = fgets(linee, MAX_LINE, expected);
+		if (le == NULL || lo == NULL || strcmp(linee, lineo) != 0) {
 			break;
 		}
 	}
@@ -46,28 +46,27 @@ bool check_same_content(char *expectedName, FILE *output) {
 }
 
 void show_file(FILE *f) {
-    int  c;
-    while((c= fgetc(f)) != EOF) {
-        putchar(c);
-    }
+	int  c;
+	while((c= fgetc(f)) != EOF) {
+		putchar(c);
+	}
 }
 
 /**
  * The test function
  */
 void test(FUNCTION func, char* expectedName) {
-    int result = exec_test(func, expectedName);
-    
-    if (result == ERROR) {
-        fprintf(stderr, "test function terminates abnormally\n");
-    }
-    else if (result == UNMATCH) {
+	int result = exec_test(func, expectedName);
+
+	if (result == ERROR) {
+		fprintf(stderr, "test function terminates abnormally\n");
+	}
+	else if (result == UNMATCH) {
 		printf("different output from expected!\n");
 	}
 	else {
 		printf("success!\n");
 	}
-  
 }
 
 
@@ -80,45 +79,43 @@ void test(FUNCTION func, char* expectedName) {
  */
 
 int exec_test(FUNCTION func, char *expectedName) {
-    
-    int pid;
-    int p[2];
-    
-    if (pipe(p) == -1) {
+
+	int pid;
+	int p[2];
+
+	if (pipe(p) == -1) {
 		perror("error creating pipe");
 		return ERROR;
 	}
-	 
-    FILE *output = fdopen(p[0], "r");
-    
-    if ((pid = fork()) == 0) { // child process
-        close(p[0]);
 
-        dup2(p[1], STDOUT_FILENO);
-        close(p[1]);
+	FILE *output = fdopen(p[0], "r");
 
-        func();
-        exit(0);
-    }
-    else if (pid > 0) { // parent process
+	if ((pid = fork()) == 0) { // child process
+		close(p[0]);
+
+		dup2(p[1], STDOUT_FILENO);
 		close(p[1]);
-		
+
+		func();
+		exit(0);
+	}
+	else if (pid > 0) { // parent process
+		close(p[1]);
+
 		bool equals = check_same_content(expectedName, output);
 		fclose(output);
-		
+
 		int status;
-        waitpid(pid, &status, 0);
-        if (WIFEXITED(status)) {
-		  return equals ? MATCH : UNMATCH;
+		waitpid(pid, &status, 0);
+		if (WIFEXITED(status)) {
+			return equals ? MATCH : UNMATCH;
 		}
-	
-      
-    }
-    return ERROR;
+	}
+	return ERROR;
 }
 
 
 int main() {
-    test(f1,"expected.txt" );
-    return 0;
+	test(f1,"expected.txt" );
+	return 0;
 }
