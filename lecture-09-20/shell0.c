@@ -23,11 +23,11 @@ int main(int argc, char *argv[]) {
 	int child_pid;
 	
 	if ((child_pid = fork()) == -1) {
-		perror("can't create new process");
+		perror2("can't create new process");
 		exit(1);
 	}
 	else if (child_pid == 0) {
-		if (execvp(argv[1], &argv[1]) == -1) {
+		if (execvp(argv[1], &argv[1] ) == -1) {
 			perror2("error on exec %s", argv[1]);
 			exit(1);
 		}
