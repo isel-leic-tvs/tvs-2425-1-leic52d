@@ -9,7 +9,7 @@
 int total=0;
 
 
-int count_calls() {
+static int count_calls() {
 	return ++total;
 }
 

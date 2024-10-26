@@ -1,4 +1,4 @@
-all: ibmath.so  client client_dyn   
+all: libmath.so  client client_dyn   
 
 CFLAGS= -g -Wall 
 	
@@ -14,14 +14,14 @@ client: client.c
 client_dyn: client_dyn.c
 	gcc -o client_dyn $(CFLAGS) client_dyn.c
 
-	
-clean:
-	rm -rf libmath.so errno client client_dyn 
 
-prepare:
+ 
+# A biblioteca tem de ser de ser copiada diretamente para o destino antes de 
+# da execução do comando ldconfig!
+install:
+	sudo cp libmath.so /usr/local/lib
 	sudo sh -c "echo /usr/local/lib  > /etc/ld.so.conf.d/tvs.conf"
 	sudo ldconfig
 	
-install:
-	sudo cp libmath.so /usr/local/lib
-	
+clean:
+	rm -rf libmath.so  client client_dyn 

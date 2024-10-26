@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/isel/src/tvs/24-25/tvs-2425-1-leic52d/lecture-10-22",
+            "binaryPath": "/home/isel/src/tvs/24-25/tvs-2425-1-leic52d/lecture-10-22/client",
+            "binaryArgs": []
+        }
+    ]
+}
