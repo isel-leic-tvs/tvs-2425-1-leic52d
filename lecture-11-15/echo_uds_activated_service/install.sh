@@ -30,8 +30,8 @@ if [ ! -d $ECHOD_DIR ]; then
 	fi
 fi	
 
-chown isel $ECHOD_DIR
-chgrp isel $ECHOD_DIR
+#chown isel $ECHOD_DIR
+#chgrp isel $ECHOD_DIR
 
 cp $ECHOD $ECHOD_DIR
 cp $ECHOD.service $SYSTD_DIR 

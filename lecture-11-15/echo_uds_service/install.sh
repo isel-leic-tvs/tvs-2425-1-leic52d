@@ -21,6 +21,7 @@ fi
 ECHOD_DIR=/opt/echod
 SYSTD_DIR=/etc/systemd/system
 
+
 if [ ! -d $ECHOD_DIR ]; then
 	if ! mkdir -p $ECHOD_DIR ; then
 		echo Failed to create $ECHOD_DIR

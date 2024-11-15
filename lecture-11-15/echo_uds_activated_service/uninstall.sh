@@ -21,7 +21,7 @@ if systemctl is-active $ECHOD ; then
 	systemctl stop $ECHOD
 fi	
 
-systemctl disable $ECHOD.socket
+systemctl stop $ECHOD.socket
  
 
 rm -rf $ECHOD_DIR

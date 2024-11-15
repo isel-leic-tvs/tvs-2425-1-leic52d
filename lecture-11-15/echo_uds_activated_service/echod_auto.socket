@@ -5,8 +5,8 @@ Description=Echo daemon activation socket
 [Socket]
 ListenStream=/opt/echod_auto/echod.sock
 SocketMode=0660
-SocketUser=root
-SocketGroup=tvs
+SocketUser=isel
+#SocketGroup=tvs
 
 [Install]
 WantedBy=sockets.target

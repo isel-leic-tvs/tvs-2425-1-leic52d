@@ -1,4 +1,0 @@
-[Install]
-WantedBy=test.target
-
-After=b.service

@@ -126,7 +126,7 @@ void run() {
 		pthread_create(&cthread, NULL, dispatch_connection, (void *) (size_t) cli_sock);
 	 
 	}
-	syslog(LOG_INFO, "echo server terminated!");
+	fprintf(stderr, "echo server terminated!");
 }
 
 
