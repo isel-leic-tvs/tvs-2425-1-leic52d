@@ -1,0 +1,20 @@
+[Unit]
+Description=Test Echo Service
+After=syslog.service 
+
+[Service]
+
+# o serviço usa o idioma de criar um filho para execução do serviço
+Type=forking
+
+# localização do ficheiro com o pid do processo servidor
+PIDFile=/opt/echod/echod.pid
+User=isel
+ExecStart=/opt/echod/echod
+
+# restart na terminação com erro ou por sinal não tratado (ex: SIGKILL)
+Restart=on-failure
+
+
+[Install]
+WantedBy=multi-user.target

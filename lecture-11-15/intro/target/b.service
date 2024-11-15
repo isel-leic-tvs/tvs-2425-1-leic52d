@@ -1,0 +1,14 @@
+[Unit]
+Description= Test Service B
+After=a.service
+Conflicts=stop.target
+#Wants=a.service
+Requires=a.service
+
+[Service]
+ExecStart=sleep 2
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=test.target

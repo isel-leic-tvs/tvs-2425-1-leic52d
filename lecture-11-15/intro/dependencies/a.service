@@ -1,0 +1,11 @@
+[Unit]
+Description= Test Service A
+
+
+[Service]
+ExecStart= sleep 2 
+#Replace previous ExecStart comment it and uncomment next
+#to produce an activation failure scenario
+#ExecStart=bash -c "sleep 2; false"
+Type=oneshot
+RemainAfterExit=true

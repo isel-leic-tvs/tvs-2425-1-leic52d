@@ -1,0 +1,8 @@
+[Unit]
+Description= Test Service A
+
+
+[Service]
+ExecStart=sleep 2
+Type=oneshot
+RemainAfterExit=true

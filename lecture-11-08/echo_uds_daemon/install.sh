@@ -27,6 +27,8 @@ cp $ECHOD_EXE $ECHOD_DIR
 #run server
 $ECHOD_PATH
 sleep 3
+chown isel $ECHOD_DIR
+chgrp isel $ECHOD_DIR
 chown isel $ECHOD_DIR/*
 chgrp isel $ECHOD_DIR/*
 

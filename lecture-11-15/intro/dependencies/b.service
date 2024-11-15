@@ -1,0 +1,17 @@
+[Unit]
+Description= Test Service B
+
+# after installation, use command: sudo systemctl start a b
+# to see the affect of After in this case
+After=a.service
+
+# uncomment one of next two lines at a time
+# to see the difference of "Wants" versus "Requires" in case of 
+# an activationfailure at service a
+#Wants=a.service
+Requires=a.service
+
+[Service]
+ExecStart=sleep 2
+Type=oneshot
+RemainAfterExit=true
