@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./add_square_cli 5 4 &
+./square_cli 7 &
