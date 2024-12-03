@@ -1,0 +1,1 @@
+qemu-system-x86_64 -m 4G -d pcall -cdrom lubuntu-22.04.5-desktop-amd64.iso 
