@@ -1,0 +1,1 @@
+mount -t overlay overlay -o lowerdir=lower1:lower2,upperdir=upper,workdir=work merged
