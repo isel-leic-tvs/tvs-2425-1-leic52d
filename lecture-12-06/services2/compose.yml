@@ -1,0 +1,16 @@
+services:
+  mytvs_svc:
+    #this directive allows the build image nodeapp1
+    # from it's DockerFile
+    build:
+      context: ../nodeapp1
+    image: nodeapp1
+    #environment: 
+    #  - NODE_PORT=4004
+    ports:
+      - 4004 
+    networks:
+      - tvs-net
+      
+networks:
+    tvs-net:
